@@ -19,9 +19,9 @@ class MapRepository @Inject constructor(private val service: RetrofitServiceProv
 
     //Using Dispatchers.IO since this is not a CPU intensive task. Otherwise I would use Default
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
+
     private val _apiResponse= MutableLiveData<List<Site>>()
     val apiResponse: LiveData<List<Site>> = _apiResponse
-    //Add repository live data
 
     fun getSiteInfo(){
         val siteList = ArrayList<Site>()

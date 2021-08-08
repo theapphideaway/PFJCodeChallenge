@@ -9,6 +9,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.pilotflyingj.codechallenge.network.models.Constants
 import com.pilotflyingj.codechallenge.viewmodel.MapsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,14 +25,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         (supportFragmentManager.findFragmentById(R.id.map) as? SupportMapFragment)?.let {
             it.getMapAsync(this)
         }
-
         viewModel = ViewModelProvider(this).get(MapsViewModel::class.java)
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
-        val unitedStates = LatLng(38.0, -97.0)
         // center camera on the entire USA
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(unitedStates))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(Constants.UsLatLong))
         // subscribe to live data for view model so that markers get added
         viewModel.siteResponse.observe(this) { sites ->
             println(sites)

@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
-//ViewModelInject is Deprecated
+//ViewModelInject is Deprecated updated to new HiltViewModel annotation
 @HiltViewModel
 class MapsViewModel @Inject constructor(private val mapRepository: MapRepository) : ViewModel() {
     // call the repository's method to get location list. Dont export the API model to the view

@@ -1,6 +1,8 @@
 package com.pilotflyingj.codechallenge.network.models
 
+import com.google.android.gms.maps.model.LatLng
+
 object Constants {
     const val BaseUrl = "https://raw.githubusercontent.com/PFJCodeChallenge/pfj-locations/master/"
-    const val SiteCallFailure = "Get Sites Network Call Failure"
+    val UsLatLong = LatLng(38.0, -97.0)
 }
